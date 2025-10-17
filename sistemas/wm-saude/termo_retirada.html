@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Termo de Retirada - WM Saúde</title>
+    <style>
+        body,html{margin:0;padding:0;font-family:Calibri,sans-serif;background-color:#f4f4f9}.page-wrapper{display:flex;width:100%;min-height:100vh;background-color:#fff}.left-border{width:60px;flex-shrink:0;background:repeating-linear-gradient(45deg,#d16a6a,#d16a6a 5px,transparent 5px,transparent 10px),repeating-linear-gradient(-45deg,#004a91,#004a91 5px,transparent 5px,transparent 10px)}.main-content{flex-grow:1;padding:40px;display:flex;flex-direction:column}header{width:100%;display:flex;justify-content:flex-end;margin-bottom:20px;flex-shrink:0}header img{max-width:220px;height:auto}.form-container{flex-grow:1;display:flex;flex-direction:column}form{display:flex;flex-direction:column;gap:15px;flex-grow:1}footer{width:100%;margin-top:30px;padding-top:15px;border-top:1px solid #eee;text-align:right;font-size:11px;color:#555;line-height:1.5;flex-shrink:0}h1{text-align:center;font-size:1.4em;margin-top:0;margin-bottom:15px;color:#004a91}.declaracao{font-size:.9em;text-align:justify;margin-bottom:20px;border-left:3px solid #ccc;padding-left:15px;color:#555}fieldset{border:1px solid #ddd;border-radius:5px;padding:15px}legend{font-weight:700;color:#004a91;padding:0 10px}.form-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:15px}.form-group{display:flex;flex-direction:column}label{margin-bottom:5px;font-weight:700;color:#444}.form-input{width:100%;padding:8px;border:1px solid #ccc;border-radius:4px;box-sizing:border-box}.action-buttons{display:flex;justify-content:flex-end;gap:15px;margin-top:20px}.btn{padding:10px 20px;border:none;border-radius:5px;font-weight:700;cursor:pointer;transition:background-color .3s}.btn-print{background-color:#004a91;color:#fff}.btn-print:hover{background-color:#003366}.btn-reset{background-color:#6c757d;color:#fff}.btn-reset:hover{background-color:#5a6268}
+        .item-row{display:flex;gap:10px;align-items:flex-end;margin-bottom:10px}.item-row .form-group{flex-grow:1}.btn-remove{background:0 0;border:none;color:#dc3545;cursor:pointer;padding:8px;font-weight:700}.btn-add{background-color:#28a745;color:#fff;margin-top:10px;align-self:flex-start}.btn-add:hover{background-color:#218838}
+        
+        @media print{
+            @page{size:A4;margin:0;}
+            body,html{background-color:#fff;font-size:11pt;color:#000}
+            .page-wrapper{min-height:297mm;height:297mm;width:210mm;box-shadow:none;margin:0;display:flex}
+            .main-content{padding:15mm 20mm;width:100%;height:100%;box-sizing:border-box;display:flex;flex-direction:column}
+            .form-container,.form{flex-grow:1;display:flex;flex-direction:column}
+            .left-border{display:block;width:15mm;flex-shrink:0}
+            .action-buttons,.btn-add,.btn-remove{display:none}
+            header{margin-bottom:15px}header img{max-width:200px}
+            h1{font-size:16pt;margin-bottom:15px;color:#000}
+            legend{font-size:12pt;color:#000}
+            .declaracao{font-size:10pt;margin-bottom:15px;line-height:1.4}
+            form{gap:15px}
+            fieldset{padding:12px}
+            .form-grid{grid-template-columns:1fr 1fr}
+            .item-row .form-grid, .item-row {grid-template-columns:repeat(4,1fr);display:grid}
+            .form-input{border:1px solid #666;background-color:transparent;padding:6px;border-radius:0;color:#000}
+            .item-row{page-break-inside:avoid}
+            footer{margin-top:auto;padding-top:10px;font-size:9pt;line-height:1.4}
+        }
+    </style>
+</head>
+<body>
+    <div class="page-wrapper">
+        <div class="left-border"></div>
+        <div class="main-content">
+            <header><img src="icon.jpg" alt="Logo WM Saúde"></header>
+            <div class="form-container">
+                <h1>TERMO DE RESPONSABILIDADE RETIRADA DE EQUIPAMENTO</h1>
+                <form id="termoForm">
+                    <fieldset>
+                        <legend>Informações Gerais</legend>
+                        <div class="form-grid"><div class="form-group"><label for="data">Data:</label><input type="date" id="data" name="data" class="form-input" required></div><div class="form-group"><label for="municipio">Município:</label><input type="text" id="municipio" name="municipio" class="form-input" required></div><div class="form-group"><label for="unidade">Unidade:</label><input type="text" id="unidade" name="unidade" class="form-input" required></div></div>
+                    </fieldset>
+                     <fieldset>
+                        <legend>Equipamentos Retirados da Unidade</legend>
+                        <div id="itens-container">
+                            <div class="item-row form-grid">
+                                <div class="form-group"><label>Equipamento:</label><input type="text" name="ret_equipamento[]" class="form-input"></div>
+                                <div class="form-group"><label>Marca/Modelo:</label><input type="text" name="ret_modelo[]" class="form-input"></div>
+                                <div class="form-group"><label>N/S:</label><input type="text" name="ret_ns[]" class="form-input"></div>
+                                <div class="form-group"><label>Patrimônio:</label><input type="text" name="ret_patrimonio[]" class="form-input"></div>
+                            </div>
+                        </div>
+                        <button type="button" id="addItemBtn" class="btn btn-add">+ Adicionar Item</button>
+                    </fieldset>
+                    <p class="declaracao">Atesto para os devidos fins que o(s) equipamento(s) acima descritos foram retirados desta unidade pelo técnico responsável para fins de manutenção externa e/ou análise técnica.</p>
+                    <fieldset>
+                        <legend>Responsáveis</legend>
+                        <div class="form-grid"><div class="form-group"><label for="tecnico_responsavel">Técnico Responsável:</label><input type="text" id="tecnico_responsavel" name="tecnico_responsavel" class="form-input" required></div><div class="form-group"><label for="responsavel_unidade">Responsável pela unidade (nome legível):</label><input type="text" id="responsavel_unidade" name="responsavel_unidade" class="form-input" required></div></div>
+                    </fieldset>
+                    <div class="action-buttons"><button type="reset" class="btn btn-reset">Limpar Formulário</button><button type="button" id="btnPrint" class="btn btn-print">Imprimir / Gerar PDF</button></div>
+                </form>
+            </div>
+            <footer></footer>
+        </div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const dataInput = document.getElementById('data');
+            if(dataInput) dataInput.value = new Date().toISOString().split('T')[0];
+            const itensContainer = document.getElementById('itens-container');
+            const addItemBtn = document.getElementById('addItemBtn');
+            if(addItemBtn){
+                addItemBtn.addEventListener('click', function() {
+                    const itemRow = document.createElement('div');
+                    itemRow.classList.add('item-row', 'form-grid');
+                    itemRow.innerHTML = `
+                        <div class="form-group"><input type="text" name="ret_equipamento[]" class="form-input" placeholder="Equipamento"></div>
+                        <div class="form-group"><input type="text" name="ret_modelo[]" class="form-input" placeholder="Marca/Modelo"></div>
+                        <div class="form-group"><input type="text" name="ret_ns[]" class="form-input" placeholder="N/S"></div>
+                        <div class="form-group"><input type="text" name="ret_patrimonio[]" class="form-input" placeholder="Patrimônio"></div>
+                        <button type="button" class="btn-remove">Remover</button>
+                    `;
+                    itensContainer.appendChild(itemRow);
+                });
+                itensContainer.addEventListener('click', function(e) {
+                    if (e.target && e.target.classList.contains('btn-remove')) {
+                        if (itensContainer.children.length > 1) {
+                             e.target.closest('.item-row').remove();
+                        }
+                    }
+                });
+            }
+        });
+        document.getElementById('btnPrint').addEventListener('click', function() { window.print(); });
+    </script>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerador de Documentos - WM Saúde</title>
+    <style>
+        body, html { margin: 0; padding: 0; font-family: Calibri, sans-serif; background-color: #f4f4f9; }
+        .page-wrapper { display: flex; width: 100%; min-height: 100vh; background-color: #fff; }
+        .left-border { width: 60px; flex-shrink: 0; background: repeating-linear-gradient(45deg, #d16a6a, #d16a6a 5px, transparent 5px, transparent 10px), repeating-linear-gradient(-45deg, #004a91, #004a91 5px, transparent 5px, transparent 10px); }
+        .main-content { flex-grow: 1; padding: 40px; display: flex; flex-direction: column; }
+        header { width: 100%; display: flex; justify-content: flex-end; margin-bottom: 40px; flex-shrink: 0; }
+        header img { max-width: 250px; height: auto; }
+        .content-container { flex-grow: 1; text-align: center; }
+        footer { width: 100%; margin-top: 50px; padding-top: 20px; border-top: 1px solid #eee; text-align: right; font-size: 11px; color: #555; line-height: 1.6; flex-shrink: 0; }
+        h1 { font-size: 1.8em; margin-bottom: 40px; color: #004a91; }
+        .doc-selector { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+        .doc-card {
+            display: block;
+            width: 200px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            text-decoration: none;
+            color: #333;
+            background-color: #f9f9f9;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .doc-card:hover { transform: translateY(-5px); box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        .doc-card h2 { font-size: 1.1em; color: #004a91; margin-top: 0; }
+        .doc-card p { font-size: 0.85em; color: #666; }
+    </style>
+</head>
+<body>
+    <div class="page-wrapper">
+        <div class="left-border"></div>
+        <div class="main-content">
+            <header>
+                <img src="icon.jpg" alt="Logo WM Saúde">
+            </header>
+            <div class="content-container">
+                <h1>Gerador de Documentos Técnicos</h1>
+                <div class="doc-selector">
+                    <a href="relatorio_visita.html" class="doc-card">
+                        <h2>Relatório de Visita Técnica</h2>
+                        <p>Para registrar manutenções e atendimentos gerais nas unidades.</p>
+                    </a>
+                    <a href="termo_envio_troca.html" class="doc-card">
+                        <h2>Termo de Envio e Troca</h2>
+                        <p>Para formalizar a troca de equipamentos em uma unidade de saúde.</p>
+                    </a>
+                    <a href="termo_retirada.html" class="doc-card">
+                        <h2>Termo de Retirada</h2>
+                        <p>Para formalizar a retirada de equipamentos da unidade para manutenção.</p>
+                    </a>
+                    <a href="termo_entrega_colaborador.html" class="doc-card">
+                        <h2>Termo de Entrega (Colaborador)</h2>
+                        <p>Para registrar a entrega de um equipamento a um funcionário.</p>
+                    </a>
+                    <a href="termo_devolucao_colaborador.html" class="doc-card">
+                        <h2>Termo de Devolução (Colaborador)</h2>
+                        <p>Para registrar a devolução de um equipamento por um funcionário.</p>
+                    </a>
+                </div>
+            </div>
+            <footer></footer>
+        </div>
+    </div>
+</body>
+</html>

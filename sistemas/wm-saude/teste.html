@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guia do Servidor Nutec - WM Saúde</title>
+    <style>
+        /* --- Reset e Configurações Globais --- */
+        * {
+            box-sizing: border-box;
+        }
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: Calibri, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f2f5;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* --- Estrutura Principal --- */
+        .page-wrapper {
+            display: flex;
+            width: 100%;
+            min-height: 100vh;
+        }
+        .left-border {
+            width: 60px;
+            flex-shrink: 0;
+            background: repeating-linear-gradient(45deg, #d16a6a, #d16a6a 5px, transparent 5px, transparent 10px), repeating-linear-gradient(-45deg, #004a91, #004a91 5px, transparent 5px, transparent 10px);
+        }
+        .main-content {
+            flex-grow: 1;
+            padding: 40px;
+            background-color: #fff;
+            max-width: 980px;
+            margin: 0 auto;
+            border-left: 1px solid #e0e0e0;
+            border-right: 1px solid #e0e0e0;
+        }
+
+        /* --- Cabeçalho e Rodapé --- */
+        header {
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 30px;
+        }
+        header img {
+            max-width: 250px;
+            height: auto;
+        }
+        footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            text-align: right;
+            font-size: 0.75em;
+            color: #777;
+        }
+
+        /* --- Tipografia e Conteúdo (Espaçamento Reduzido) --- */
+        h1 {
+            text-align: center;
+            font-size: 2.2em;
+            margin-bottom: 30px;
+            color: #004a91;
+            font-weight: 600;
+        }
+        h2 {
+            font-size: 1.6em;
+            color: #004a91;
+            border-bottom: 2px solid #004a91;
+            padding-bottom: 8px;
+            margin-top: 35px;
+            margin-bottom: 20px;
+        }
+        h3 {
+            font-size: 1.25em;
+            color: #004a91;
+            margin-top: 25px;
+            margin-bottom: 15px;
+        }
+        p, li {
+            font-size: 1.1em;
+            text-align: justify;
+            margin-bottom: 0.8em;
+        }
+        ul, ol {
+            padding-left: 30px;
+        }
+        b, strong {
+            font-weight: 600;
+            color: #111;
+        }
+
+        /* --- Elementos Específicos (Espaçamento Reduzido) --- */
+        .code-block {
+            background-color: #f5f5f5;
+            padding: 15px;
+            border-radius: 5px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 1.1em;
+            border: 1px solid #ddd;
+            margin: 15px 0;
+            text-align: left;
+        }
+        .important-note {
+            padding: 20px;
+            background-color: #fffbe6;
+            border-left: 5px solid #ffc107;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        .important-note p {
+            margin-bottom: 0;
+        }
+        .image-container {
+            width: 100%;
+            text-align: center;
+            margin: 25px 0;
+        }
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px 15px;
+            text-align: left;
+            vertical-align: middle;
+        }
+        th {
+            background-color: #004a91;
+            color: #ffffff;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        /* --- Otimizações para Impressão em PDF --- */
+        @media print {
+            .left-border { display: none; }
+            body, html { background-color: #fff; }
+            .main-content {
+                width: 100%;
+                padding: 1.5cm;
+                border: none;
+                box-shadow: none;
+                max-width: none;
+            }
+            .page-wrapper { display: block; }
+            h1 { font-size: 2em; }
+            h2 { font-size: 1.5em; page-break-after: avoid; }
+            p, li { line-height: 1.5; font-size: 1em; }
+            .code-block, .important-note {
+                background-color: #f8f8f8 !important;
+                border: 1px solid #ccc !important;
+            }
+            .image-container img {
+                box-shadow: none;
+                max-width: 90%;
+            }
+            table { box-shadow: none; page-break-inside: avoid; }
+            footer { text-align: center; }
+        }
+    </style>
+</head>
+<body>
+    <div class="page-wrapper">
+        <div class="left-border"></div>
+        <div class="main-content">
+            <header>
+                <img src="icon.jpg" alt="Logo WM Saúde">
+            </header>
+            <div class="content-container">
+                <h1>Guia de Acesso e Documentação do Servidor Nutec</h1>
+                
+                <p>Este documento serve como um guia central para a nova infraestrutura de TI do setor Nutec. O objetivo deste projeto é centralizar nossas ferramentas, automatizar processos e criar uma base sólida para futuros serviços, conforme detalhado no relatório de projetos de TI.</p>
+
+                <h2>A Arquitetura da Solução</h2>
+                <p>Toda a nossa nova infraestrutura está consolidada em um único servidor físico, gerenciado pela plataforma de virtualização Proxmox. Isso nos dá flexibilidade e segurança, separando cada serviço em seu próprio ambiente isolado.</p>
+
+                <div class="image-container">
+                    <img src="diagrama_rede.jpg" alt="Diagrama de Rede da Infraestrutura Nutec">
+                </div>
+
+                <p>A estrutura funciona em camadas:</p>
+                <ul>
+                    <li><b>Servidor Físico:</b> A máquina que hospeda tudo.</li>
+                    <li><b>Proxmox VE:</b> O sistema principal (hipervisor) que nos permite criar e gerenciar Máquinas Virtuais (VMs).</li>
+                    <li><b>Máquinas Virtuais (VMs):</b> Temos duas máquinas virtuais isoladas onde rodamos nossos sistemas: a <b>VM Gateway</b> e a <b>VM Aplicações</b>.</li>
+                    <li><b>Docker:</b> Dentro de ambas as VMs, usamos o Docker para rodar cada serviço em seu próprio contêiner, garantindo portabilidade e facilidade na gestão.</li>
+                </ul>
+
+                <h2>Configuração das Máquinas Virtuais (VMs)</h2>
+                <p>Para otimizar o desempenho do nosso servidor (i3-8100, 16GB RAM, SSD 240GB), cada Máquina Virtual foi dimensionada para atender às necessidades de suas aplicações. Abaixo, detalhamos a alocação de recursos:</p>
+
+                <h3>Recursos do Servidor Físico:</h3>
+                <ul>
+                    <li><strong>Processador:</strong> Intel Core i3-8100 (4 Cores)</li>
+                    <li><strong>Memória RAM:</strong> 16 GB DDR4</li>
+                    <li><strong>Armazenamento:</strong> SSD 240 GB</li>
+                </ul>
+
+                <div class="image-container">
+                    <img src="diagrama_alocacao.jpg" alt="Diagrama de Alocação de Recursos de VMs">
+                </div>
+
+                <h3>Detalhes das VMs:</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>VM e Aplicações</th>
+                            <th>Sistema Operacional</th>
+                            <th>CPU</th>
+                            <th>RAM</th>
+                            <th>Disco</th>
+                            <th>Finalidade</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><b>VM Gateway</b><br>(Nginx/Traefik, Cloudflare Tunnel, Docker)</td>
+                            <td>Debian 12 / Ubuntu Server</td>
+                            <td>2 Cores</td>
+                            <td>2 GB</td>
+                            <td>30 GB (Thin)</td>
+                            <td>Ponto de entrada para acesso externo seguro e proxy reverso.</td>
+                        </tr>
+                        <tr>
+                            <td><b>VM Aplicações</b><br>(GLPI, DocuSeal, Zabbix, Grafana, Docker)</td>
+                            <td>Debian 12 / Ubuntu Server</td>
+                            <td>4 Cores</td>
+                            <td>12 GB</td>
+                            <td>150 GB (Thin)</td>
+                            <td>Consolida as principais aplicações de gestão e monitoramento.</td>
+                        </tr>
+                        <tr>
+                            <td><b>TOTAL ALOCADO</b></td>
+                            <td>-</td>
+                            <td><b>6 Cores</b></td>
+                            <td><b>14 GB</b></td>
+                            <td><b>180 GB</b></td>
+                            <td>-</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p><i>*<b>Thin Provisioning:</b> O espaço em disco é reservado, mas só ocupa o espaço real no SSD conforme os dados são gravados.</i></p>
+                <div class="important-note">
+                    <p><b>Observação sobre CPU:</b> A alocação total de CPU (6 cores) excede os 4 cores físicos do servidor. Isso é conhecido como "oversubscription" e é uma prática comum em virtualização, pois raramente todas as VMs utilizarão 100% de seus recursos de CPU simultaneamente. O Proxmox gerenciará a prioridade de forma eficiente.</p>
+                </div>
+
+                <h2>Como Acessar o Proxmox</h2>
+                <p>O Proxmox é o painel de controle de todo o servidor. A partir dele, podemos gerenciar as VMs, verificar o consumo de recursos e administrar toda a infraestrutura. O acesso é restrito à rede interna da WM Saúde.</p>
+
+                <ol>
+                    <li>
+                        <strong>Pré-requisito:</strong> Você deve estar conectado à rede local da WM Saúde (via cabo ou Wi-Fi).
+                    </li>
+                    <li>
+                        <strong>Acesse o endereço:</strong> Abra seu navegador e acesse a seguinte URL. Lembre-se de usar <b>https://</b> e a porta <b>:8006</b>.
+                        <div class="code-block">https://10.0.0.10:8006</div>
+                    </li>
+                    <li>
+                        <strong>Aviso de Segurança:</strong> O navegador exibirá um alerta de "Conexão não segura". Isso é normal. Clique em "Avançado" e depois em "Continuar para 10.0.0.10 (não seguro)".
+                    </li>
+                    <li>
+                        <strong>Tela de Login:</strong> Use as seguintes credenciais:
+                        <ul>
+                            <li><strong>Nome de usuário:</strong> `root`</li>
+                            <li><strong>Senha:</strong> (A senha que você definiu na instalação)</li>
+                            <li><strong>Realm:</strong> `Proxmox VE authentication server`</li>
+                        </ul>
+                    </li>
+                </ol>
+                
+                <div class="important-note">
+                    <p><b>Nota Importante:</b> O Proxmox é o "coração" da nossa infraestrutura. Tenha cuidado ao realizar qualquer alteração. Este acesso deve ser utilizado para monitoramento e gerenciamento planejado das VMs.</p>
+                </div>
+
+                <h2>Próximos Passos</h2>
+                <p>Com a base do servidor estabelecida, os próximos projetos a serem integrados, conforme o planejamento, são:</p>
+                <ul>
+                    <li>Implementação do GLPI para inventário e chamados.</li>
+                    <li>Integração do DocuSeal para assinaturas digitais.</li>
+                    <li>Estruturação do monitoramento proativo com Zabbix e Grafana.</li>
+                </ul>
+
+            </div>
+            <footer>
+                Documento gerado para uso interno - Nutec (WM Saúde) - Outubro de 2025
+            </footer>
+        </div>
+    </div>
+</body>
+</html>

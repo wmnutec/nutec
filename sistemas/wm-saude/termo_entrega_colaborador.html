@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Termo de Entrega (Colaborador) - WM Saúde</title>
+    <style>
+        body,html{margin:0;padding:0;font-family:Calibri,sans-serif;background-color:#f4f4f9}.page-wrapper{display:flex;width:100%;min-height:100vh;background-color:#fff}.left-border{width:60px;flex-shrink:0;background:repeating-linear-gradient(45deg,#d16a6a,#d16a6a 5px,transparent 5px,transparent 10px),repeating-linear-gradient(-45deg,#004a91,#004a91 5px,transparent 5px,transparent 10px)}.main-content{flex-grow:1;padding:40px;display:flex;flex-direction:column}header{width:100%;display:flex;justify-content:flex-end;margin-bottom:20px;flex-shrink:0}header img{max-width:220px;height:auto}.form-container{flex-grow:1;display:flex;flex-direction:column}form{display:flex;flex-direction:column;gap:15px;flex-grow:1}footer{width:100%;margin-top:30px;padding-top:15px;border-top:1px solid #eee;text-align:right;font-size:11px;color:#555;line-height:1.5;flex-shrink:0}h1{text-align:center;font-size:1.4em;margin-top:0;margin-bottom:15px;color:#004a91}.declaracao{font-size:.9em;text-align:justify;margin-bottom:20px;border-left:3px solid #ccc;padding-left:15px;color:#555}fieldset{border:1px solid #ddd;border-radius:5px;padding:15px}legend{font-weight:700;color:#004a91;padding:0 10px}.form-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:15px}.form-group{display:flex;flex-direction:column}label{margin-bottom:5px;font-weight:700;color:#444}.form-input{width:100%;padding:8px;border:1px solid #ccc;border-radius:4px;box-sizing:border-box}.action-buttons{display:flex;justify-content:flex-end;gap:15px;margin-top:20px}.btn{padding:10px 20px;border:none;border-radius:5px;font-weight:700;cursor:pointer;transition:background-color .3s}.btn-print{background-color:#004a91;color:#fff}.btn-print:hover{background-color:#003366}.btn-reset{background-color:#6c757d;color:#fff}.btn-reset:hover{background-color:#5a6268}
+        
+        @media print{
+            @page{size:A4;margin:0;}
+            body,html{background-color:#fff;font-size:11pt;color:#000}
+            .page-wrapper{min-height:297mm;height:297mm;width:210mm;box-shadow:none;margin:0;display:flex}
+            .main-content{padding:15mm 20mm;width:100%;height:100%;box-sizing:border-box;display:flex;flex-direction:column}
+            .form-container{flex-grow:1;display:flex;flex-direction:column}
+            form{flex-grow:1;display:flex;flex-direction:column}
+            .left-border{display:block;width:15mm;flex-shrink:0}
+            .action-buttons{display:none}
+            header{margin-bottom:15px}
+            header img{max-width:200px}
+            h1{font-size:16pt;margin-bottom:15px;color:#000}
+            legend{font-size:12pt;color:#000}
+            .declaracao{font-size:10pt;margin-bottom:15px;line-height:1.4}
+            form{gap:15px}
+            fieldset{padding:12px}
+            .form-grid{grid-template-columns:1fr 1fr}
+            .form-input{border:1px solid #666;background-color:transparent;padding:6px;border-radius:0;color:#000}
+            footer{margin-top:auto;padding-top:10px;font-size:9pt;line-height:1.4}
+        }
+    </style>
+</head>
+<body>
+    <div class="page-wrapper">
+        <div class="left-border"></div>
+        <div class="main-content">
+            <header><img src="icon.jpg" alt="Logo WM Saúde"></header>
+            <div class="form-container">
+                <h1>TERMO DE RESPONSABILIDADE - ENTREGA DE EQUIPAMENTO</h1>
+                <form id="termoForm">
+                    <fieldset>
+                        <legend>Dados do Colaborador</legend>
+                        <div class="form-grid"><div class="form-group"><label for="data">Data:</label><input type="date" id="data" name="data" class="form-input" required></div><div class="form-group"><label for="colaborador">Nome do Colaborador:</label><input type="text" id="colaborador" name="colaborador" class="form-input" required></div><div class="form-group"><label for="cpf">CPF:</label><input type="text" id="cpf" name="cpf" class="form-input" required></div><div class="form-group"><label for="cargo">Cargo:</label><input type="text" id="cargo" name="cargo" class="form-input" required></div></div>
+                    </fieldset>
+                     <fieldset>
+                        <legend>Equipamento Entregue</legend>
+                        <div class="form-grid"><div class="form-group"><label for="equipamento">Equipamento:</label><input type="text" id="equipamento" name="equipamento" class="form-input"></div><div class="form-group"><label for="modelo">Marca/Modelo:</label><input type="text" id="modelo" name="modelo" class="form-input"></div><div class="form-group"><label for="ns">N/S:</label><input type="text" id="ns" name="ns" class="form-input"></div><div class="form-group"><label for="patrimonio">Patrimônio:</label><input type="text" id="patrimonio" name="patrimonio" class="form-input"></div></div>
+                    </fieldset>
+                    <p class="declaracao">Declaro que recebi o(s) equipamento(s) acima descrito(s), em perfeitas condições de uso e funcionamento, assumindo total responsabilidade pela sua guarda, conservação e correto uso, destinando-o exclusivamente para fins de trabalho.</p>
+                    <fieldset>
+                        <legend>Assinaturas</legend>
+                        <div class="form-grid"><div class="form-group"><label for="ass_empresa">Representante da Empresa:</label><input type="text" id="ass_empresa" name="ass_empresa" class="form-input" required></div><div class="form-group"><label for="ass_colaborador">Assinatura do Colaborador:</label><input type="text" id="ass_colaborador" name="ass_colaborador" class="form-input" required></div></div>
+                    </fieldset>
+                    <div class="action-buttons"><button type="reset" class="btn btn-reset">Limpar Formulário</button><button type="button" id="btnPrint" class="btn btn-print">Imprimir / Gerar PDF</button></div>
+                </form>
+            </div>
+            <footer></footer>
+        </div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded',function(){const t=new Date,e=t.toISOString().split("T")[0];document.getElementById("data").value=e}),document.getElementById("btnPrint").addEventListener("click",function(){window.print()});
+    </script>
+</body>
+</html>
