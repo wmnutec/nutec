@@ -1,6 +1,6 @@
 <div align="center">
   <img src="https://img.shields.io/badge/Sistema-Gerador_de_Documentos-34495E?style=for-the-badge&logo=html5" alt="Documentação Badge"/>
-  <a href="https://blusylake.github.io/WM-Saude/" target="_blank"><img src="https://img.shields.io/badge/Acessar_Sistema-Online-brightgreen?style=for-the-badge&logo=googlechrome" alt="Acessar Sistema Badge"/></a>
+  <a href="https://wmnutec.github.io/nutec/" target="_blank"><img src="https://img.shields.io/badge/Acessar_Sistema-Online-brightgreen?style=for-the-badge&logo=googlechrome" alt="Acessar Sistema Badge"/></a>
 </div>
 
 <h1 align="center">
@@ -25,9 +25,9 @@
 
 ### 🚀 Acesso Rápido ao Sistema
 
-Este sistema está em produção e pode ser acessado de qualquer dispositivo com internet (celular, tablet ou notebook) através do link abaixo. Salve este link nos seus favoritos.
+Este sistema está em produção e pode ser acessado de qualquer dispositivo com internet (celular, tablet ou notebook) através do link oficial abaixo. Salve este link nos seus favoritos.
 
-<h2 align="center"><a href="https://blusylake.github.io/WM-Saude/" target="_blank">https://blusylake.github.io/WM-Saude/</a></h2>
+<h2 align="center"><a href="https://wmnutec.github.io/nutec/" target="_blank">https://wmnutec.github.io/nutec/</a></h2>
 
 ---
 
@@ -45,7 +45,7 @@ Este sistema foi criado para resolver três desafios principais do nosso trabalh
 
 O processo para gerar um documento é simples e leva menos de 2 minutos.
 
-1.  **Acesse o Sistema:** Abra o link [**https://blusylake.github.io/WM-Saude/**](https://blusylake.github.io/WM-Saude/) no seu navegador.
+1.  **Acesse o Sistema:** Abra o link [**https://wmnutec.github.io/nutec/**](https://wmnutec.github.io/nutec/) no seu navegador.
 
 2.  **Escolha o Documento:** Na página inicial, clique no tipo de documento que você precisa gerar (ex: "Termo de Retirada").
 
@@ -73,8 +73,8 @@ Os seguintes formulários estão disponíveis na plataforma:
 
 ### 💻 Código-Fonte e Contribuições
 
--   **Localização:** O código-fonte deste sistema (os arquivos HTML e CSS) está localizado no diretório `/WM-Saude/` deste repositório.
--   **Melhorias:** Se você tem uma ideia para um novo formulário, encontrou um bug ou tem uma sugestão para melhorar um documento existente, por favor, abra uma "Issue" neste repositório do GitHub ou envie um e-mail para **wmnutec@gmail.com**.
+-   **Localização:** O código-fonte deste sistema (os arquivos HTML e CSS) está localizado no diretório `/sistemas/wm-saude/` deste repositório.
+-   **Melhorias:** Se você tem uma ideia para um novo formulário, encontrou um bug ou tem uma sugestão para melhorar um documento existente, por favor, abra uma "Issue" neste reposit-ório do GitHub ou envie um e-mail para **wmnutec@gmail.com**.
 
 ---
 <div align="center">
