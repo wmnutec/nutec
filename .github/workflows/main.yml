@@ -1,0 +1,37 @@
+# Nome do Workflow para a sua referência
+name: Deploy WM-Saude Pages
+
+# Gatilho: Este robô vai rodar toda vez que você fizer um 'push' na branch 'main'
+on:
+  push:
+    branches: ["main"]
+
+# Permissões necessárias para o robô poder publicar a página
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Tarefas que o robô vai executar
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      # 1. Baixa o código do seu repositório
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # 2. Prepara o conteúdo para publicação
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      # 3. Pega TUDO que está dentro da pasta /sistemas/wm-saude e cria um "pacote"
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: './sistemas/wm-saude'
+
+      # 4. Publica o "pacote" que foi criado no passo anterior
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
