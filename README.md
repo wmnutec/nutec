@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="https://raw.githubusercontent.com/blusy/nutec/main/WM-Saude/icon.jpg" alt="Logo WM Saúde" width="400"/>
+  <img src="./icon.jpg" alt="Logo WM Saúde" width="400"/>
   <h1 align="center">Centro de Operações e Conhecimento - Setor Nutec</h1>
   <p align="center">
     <strong>A fonte única da verdade para processos, ferramentas e infraestrutura da equipe de TI na WM Saúde.</strong>
